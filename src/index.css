@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.board {
+  padding: 50px 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.button-image {
+  background-color: white;
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-normal {
+  background-color: white;
+}
+.button-complete {
+  background-color: #32d657;
+}
+.button-wontdo {
+  background-color: #dd524c;
+}
+.button-progress {
+  background-color: #e9a23b;
+}
+
+.button-image img {
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
+}
+
+.tasks {
+  display: flex;
+  gap: 20px;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.status-normal {
+  background-color: #e3e8ef;
+}
+
+.status-complete {
+  background-color: #a0ecb1;
+}
+
+.status-wontdo {
+  background-color: #f7d4d3;
+}
+
+.status-progress {
+  background-color: #f5d565;
+}
