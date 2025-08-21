@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ImageButton from "./ImageButon";
 
-function TaskCard({ status, img }) {
+function TaskCard({ status, img, title, desc }) {
   const [color, setColor] = useState("normal");
 
   useEffect(() => {
@@ -10,12 +10,15 @@ function TaskCard({ status, img }) {
 
   return (
     <div className={`tasks status-${color}`}>
-      <ImageButton image={img} />
-      <div>
-        <h2>Task in Progress</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur</p>
+      <div className="timg">
+        <ImageButton image={img} />
+        <div>
+          <h2>{title}</h2>
+          {desc && <p>{desc}</p>}
+        </div>
       </div>
-      <ImageButton status={status} />
+
+      {status && <ImageButton status={status} />}
     </div>
   );
 }
