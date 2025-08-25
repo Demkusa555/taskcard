@@ -3,10 +3,21 @@ import pencil from "./assets/image/pencil.svg";
 import TaskCard from "./components/TaskCard";
 import logo from "./assets/image/Logo.svg";
 import TaskDetail from "./components/taskDetail";
+import { useState } from "react";
 
 //we have 4 status NORMAL, COMPLETED, PROGRESS, WONTDO
 
 function App() {
+  const [toggle, setToggle] = useState(false);
+
+  const handleclick = () => {
+    setToggle(true);
+  };
+
+  const closePopUp = () => {
+    setToggle(false);
+  };
+
   return (
     <div className="board">
       <div className="title">
@@ -26,11 +37,16 @@ function App() {
         title={"Task To Do"}
         desc={"orem ipsum dolor sit amet consectetur, adipisicing elit"}
       />
-      <div>
+
+      <div
+        onClick={() => {
+          handleclick();
+        }}
+      >
         <TaskCard status={"add"} img={logo} title={"Add new task"} />
       </div>
 
-      <TaskDetail />
+      {toggle && <TaskDetail close={closePopUp} />}
     </div>
   );
 }

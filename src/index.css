@@ -96,21 +96,91 @@
   background-color: white;
   height: 100%;
   border-radius: 8px;
-  height: 900px;
-  width: 900px;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  width: 600px;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .Tname input {
   border-radius: 5px;
+  width: 100%;
 }
 
-.Tdesc input {
+.Tdesc textarea {
   border-radius: 5px;
+  width: 100%;
+  height: 100px;
 }
 
 .Tbuton {
+  display: flex;
+  justify-content: end;
+  align-items: end;
   border-radius: 10px;
+  width: 100%;
+  gap: 20px;
+}
+
+.thead {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.Tbutton {
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #00000033;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.tbutton {
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #3662e3;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.thead button {
+  border: 1px solid;
+  padding: 3px;
+}
+
+.ticon {
+  display: flex;
+  gap: 10px;
+}
+
+.status1 {
+  border: 1px solid gray;
+  border-radius: 15px;
+  display: flex;
+  gap: 15px;
+  width: 200px;
+  align-items: center;
+}
+
+.status2 {
+  display: flex;
+  gap: 50px;
+}
+
+.status3 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
