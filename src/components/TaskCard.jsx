@@ -13,8 +13,8 @@ function TaskCard({ status, img, title, desc }) {
       <div className="timg">
         <ImageButton image={img} />
         <div>
-          <h2>{title}</h2>
-          {desc && <p>{desc}</p>}
+          <h2 style={{ fontSize: "20px", fontWeight: "700" }}>{title}</h2>
+          {desc && <p style={{ color: "#6a707b" }}>{desc}</p>}
         </div>
       </div>
 
