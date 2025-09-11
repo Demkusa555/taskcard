@@ -36,7 +36,7 @@ const statuslist = [
   },
 ];
 
-function TaskDetail({ close, setAllTask }) {
+function UpdateTask({ close }) {
   const [newTaks, setNewTask] = useState({
     name: "",
     desc: "",
@@ -62,10 +62,6 @@ function TaskDetail({ close, setAllTask }) {
       window.alert("sheavse!!");
       return;
     }
-
-    setAllTask((prev) => {
-      return [...prev, newTaks];
-    });
 
     setNewTask({
       name: "",
@@ -196,4 +192,4 @@ function TaskDetail({ close, setAllTask }) {
   );
 }
 
-export default TaskDetail;
+export default UpdateTask;

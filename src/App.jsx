@@ -8,6 +8,8 @@ import { useState } from "react";
 //we have 4 status NORMAL, COMPLETED, PROGRESS, WONTDO
 
 function App() {
+  const [allTask, setAllTask] = useState([]);
+
   const [toggle, setToggle] = useState(false);
 
   const handleclick = () => {
@@ -17,6 +19,8 @@ function App() {
   const closePopUp = () => {
     setToggle(false);
   };
+
+  console.log(allTask);
 
   return (
     <div className="board">
@@ -28,15 +32,21 @@ function App() {
       <div>
         <p>Tasks to keep organaised</p>
       </div>
+
       <TaskCard status={"progress"} img={logo} title={"Task In Progress"} />
       <TaskCard status={"complete"} img={logo} title={"Task Completed"} />
       <TaskCard status={"wontdo"} img={logo} title={"Task Won't Do"} />
-      <TaskCard
-        status={"normal"}
-        img={logo}
-        title={"Task To Do"}
-        desc={"orem ipsum dolor sit amet consectetur, adipisicing elit"}
-      />
+
+      {allTask.map((task) => {
+        return (
+          <TaskCard
+            status={task.status}
+            img={task.icon}
+            title={task.name}
+            desc={task.desc}
+          />
+        );
+      })}
 
       <div
         onClick={() => {
@@ -45,8 +55,6 @@ function App() {
       >
         <TaskCard status={"add"} img={logo} title={"Add new task"} />
       </div>
-
-      {toggle && <TaskDetail close={closePopUp} />}
     </div>
   );
 }

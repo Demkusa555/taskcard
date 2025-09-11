@@ -1,4 +1,4 @@
-function TextArea({ name }) {
+function TextArea({ name, handleChangeTask, keyname, defaultvalue }) {
   return (
     <div>
       <div className="Tdesc">
@@ -11,7 +11,14 @@ function TextArea({ name }) {
         >
           {name}
         </h5>
-        <textarea style={{ border: "1px solid #E3E8EF", padding: "5px" }} />
+        <textarea
+          onChange={(event) => {
+            handleChangeTask(event.target.value, event.target.name);
+          }}
+          style={{ border: "1px solid #E3E8EF", padding: "5px" }}
+          name={keyname}
+          value={defaultvalue}
+        />
       </div>
     </div>
   );

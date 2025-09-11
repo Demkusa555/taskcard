@@ -1,4 +1,4 @@
-function TextInput() {
+function TextInput({ name, handleChangeTask, keyname, defaultvalue }) {
   return (
     <div className="Tname">
       <h5
@@ -8,11 +8,16 @@ function TextInput() {
           paddingBottom: "10px",
         }}
       >
-        Task Name
+        {name}
       </h5>
       <input
+        onChange={(event) => {
+          handleChangeTask(event.target.value, event.target.name);
+        }}
         type="text"
         style={{ border: "1px solid #E3E8EF", padding: "5px" }}
+        name={keyname}
+        value={defaultvalue}
       />
     </div>
   );
