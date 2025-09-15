@@ -1,22 +1,8 @@
-import { LuMessageCircleMore } from "react-icons/lu";
 import TextArea from "./TextArea";
 import TextInput from "./TextInput";
-import { PiCoffee } from "react-icons/pi";
-import { IoLaptopSharp } from "react-icons/io5";
-import { CgGym } from "react-icons/cg";
-import { SiBookstack } from "react-icons/si";
-import { IoIosAlarm } from "react-icons/io";
 import ImageButton from "./ImageButon";
 import { useState } from "react";
-
-const iconList = [
-  { id: 1, Icon: IoLaptopSharp },
-  { id: 2, Icon: LuMessageCircleMore },
-  { id: 3, Icon: PiCoffee },
-  { id: 4, Icon: CgGym },
-  { id: 5, Icon: SiBookstack },
-  { id: 6, Icon: IoIosAlarm },
-];
+import iconList from "../data/iconsList";
 
 const statuslist = [
   {
@@ -44,8 +30,6 @@ function TaskDetail({ close, setAllTask }) {
     status: "",
   });
 
-  const [curentIcon, setCurentIcon] = useState(0);
-
   function handleChangeTask(value, key) {
     setNewTask((prev) => {
       return {
@@ -64,7 +48,7 @@ function TaskDetail({ close, setAllTask }) {
     }
 
     setAllTask((prev) => {
-      return [...prev, newTaks];
+      return [...prev, { id: Date.now(), ...newTaks }];
     });
 
     setNewTask({
@@ -73,8 +57,6 @@ function TaskDetail({ close, setAllTask }) {
       icon: "",
       status: "",
     });
-
-    setCurentIcon(0);
   }
 
   return (
@@ -135,11 +117,10 @@ function TaskDetail({ close, setAllTask }) {
                       className={`add-new-icon`}
                       style={{
                         background:
-                          curentIcon === icon.id ? "#F5D565" : "#e3e8ef",
+                          newTaks.icon === icon.id ? "#F5D565" : "#e3e8ef",
                       }}
                       onClick={() => {
-                        handleChangeTask(icon.Icon, "icon");
-                        setCurentIcon(icon.id);
+                        handleChangeTask(icon.id, "icon");
                       }}
                     />
                   );

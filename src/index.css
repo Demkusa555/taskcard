@@ -200,3 +200,12 @@
     padding: 20px;
   }
 }
+
+.TT img {
+  background-color: orange;
+}
+
+.GG {
+  display: flex;
+  gap: 8px;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import done from "../assets/image/Done.svg";
 import time from "../assets/image/Time.svg";
 import close from "../assets/image/close.svg";
+import iconList from "../data/iconsList";
 
 function ImageButton({ status, image }) {
   const [currentStatus, setCurrentStatus] = useState("normal");
@@ -31,7 +32,17 @@ function ImageButton({ status, image }) {
 
   return (
     <div className={`button-image button-${currentStatus}`}>
-      <img src={imageSrc} alt="#" />
+      <>
+        {typeof imageSrc === "string" ? (
+          <img src={imageSrc} alt="#" />
+        ) : (
+          iconList
+            .filter((item) => item.id === imageSrc)
+            .map((foundItem) => {
+              return <foundItem.Icon key={foundItem.id} />;
+            })
+        )}
+      </>
     </div>
   );
 }

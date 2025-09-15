@@ -5,6 +5,11 @@ import logo from "./assets/image/Logo.svg";
 import TaskDetail from "./components/taskDetail";
 import { useState } from "react";
 
+import Add_round_duotone from "../src/assets/image/Add_round_duotone.svg";
+import alarm from "../src/assets/image/alarm.webp";
+import gym from "../src/assets/image/gym.jpg";
+import coffe from "../src/assets/image/coffe.jpg";
+
 //we have 4 status NORMAL, COMPLETED, PROGRESS, WONTDO
 
 function App() {
@@ -20,7 +25,9 @@ function App() {
     setToggle(false);
   };
 
-  console.log(allTask);
+  function handleDelete(id) {
+    setAllTask((prevTask) => prevTask.filter((task) => task.id !== id));
+  }
 
   return (
     <div className="board">
@@ -32,29 +39,36 @@ function App() {
       <div>
         <p>Tasks to keep organaised</p>
       </div>
-
-      <TaskCard status={"progress"} img={logo} title={"Task In Progress"} />
-      <TaskCard status={"complete"} img={logo} title={"Task Completed"} />
-      <TaskCard status={"wontdo"} img={logo} title={"Task Won't Do"} />
-
+      <TaskCard status={"progress"} img={alarm} title={"Task In Progress"} />
+      <TaskCard status={"complete"} img={gym} title={"Task Completed"} />
+      <TaskCard status={"wontdo"} img={coffe} title={"Task Won't Do"} />
       {allTask.map((task) => {
         return (
           <TaskCard
+            key={task.id}
             status={task.status}
             img={task.icon}
             title={task.name}
             desc={task.desc}
+            handleDelete={handleDelete}
+            id={task.id}
           />
         );
       })}
-
       <div
+        className="TT"
         onClick={() => {
           handleclick();
         }}
       >
-        <TaskCard status={"add"} img={logo} title={"Add new task"} />
+        <TaskCard
+          status={"add"}
+          img={Add_round_duotone}
+          title={"Add new task"}
+        />
       </div>
+
+      {toggle && <TaskDetail close={closePopUp} setAllTask={setAllTask} />}
     </div>
   );
 }
